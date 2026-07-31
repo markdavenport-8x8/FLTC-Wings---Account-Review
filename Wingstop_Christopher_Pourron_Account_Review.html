@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wingstop - Christopher Pourron | Account Review</title>
+<style>
+  :root {
+    --bg-accent: #E6F1FB; --text-accent: #185FA5; --border-accent: #378ADD;
+    --bg-warning: #FAEEDA; --text-warning: #854F0B;
+    --bg-danger: #FCEBEB; --text-danger: #A32D2D;
+    --bg-success: #EAF3DE; --text-success: #3B6D11;
+    --surface-0: #F1EFE8; --surface-1: #F8F7F4; --surface-2: #FFFFFF;
+    --text-primary: #2C2C2A; --text-secondary: #5F5E5A; --text-muted: #888780;
+    --border: rgba(0,0,0,0.1); --border-strong: rgba(0,0,0,0.18);
+    --radius: 8px; --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-accent: #0C447C; --text-accent: #85B7EB;
+      --bg-warning: #633806; --text-warning: #FAC775;
+      --bg-danger: #501313; --text-danger: #F09595;
+      --bg-success: #173404; --text-success: #97C459;
+      --surface-0: #1a1a18; --surface-1: #242422; --surface-2: #2e2e2b;
+      --text-primary: #F1EFE8; --text-secondary: #B4B2A9; --text-muted: #5F5E5A;
+      --border: rgba(255,255,255,0.1); --border-strong: rgba(255,255,255,0.18);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); background: var(--surface-0); color: var(--text-primary); padding: 2rem 1rem; }
+  .container { max-width: 720px; margin: 0 auto; }
+  .ar-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 1.5rem; }
+  .ar-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--bg-accent); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; color: var(--text-accent); flex-shrink: 0; }
+  .ar-meta h1 { font-size: 20px; font-weight: 500; margin-bottom: 2px; }
+  .ar-meta p { font-size: 13px; color: var(--text-secondary); }
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 3px 8px; border-radius: var(--radius); margin-top: 6px; margin-right: 4px; }
+  .badge-warning { background: var(--bg-warning); color: var(--text-warning); }
+  .badge-success { background: var(--bg-success); color: var(--text-success); }
+  .contacts { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.5rem; }
+  .contact-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-bottom: 1rem; }
+  .metric { background: var(--surface-1); border-radius: var(--radius); padding: 10px 12px; }
+  .metric-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+  .metric-val { font-size: 20px; font-weight: 500; }
+  .section { background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  .section-title { font-size: 13px; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+  table.loc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .loc-table th { text-align: left; font-size: 11px; color: var(--text-muted); font-weight: 500; padding: 0 8px 8px 0; border-bottom: 0.5px solid var(--border); }
+  .loc-table td { padding: 8px 8px 8px 0; border-bottom: 0.5px solid var(--border); vertical-align: middle; }
+  .loc-table tr:last-child td { border-bottom: none; }
+  .case-none { display: inline-flex; align-items: center; gap: 4px; background: var(--bg-danger); color: var(--text-danger); font-size: 11px; padding: 2px 7px; border-radius: var(--radius); }
+  .case-new { display: inline-flex; align-items: center; gap: 4px; background: var(--bg-success); color: var(--text-success); font-size: 11px; padding: 2px 7px; border-radius: var(--radius); }
+  .case-note { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+  .sf-link { color: var(--text-accent); text-decoration: none; font-size: 12px; }
+  .sf-link:hover { text-decoration: underline; }
+  .issue-list { display: flex; flex-direction: column; gap: 6px; }
+  .issue-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; line-height: 1.5; }
+  .icon-danger { color: var(--text-danger); font-size: 14px; margin-top: 1px; }
+  .icon-warning { color: var(--text-warning); font-size: 14px; margin-top: 1px; }
+  .icon-muted { color: var(--text-muted); font-size: 14px; margin-top: 1px; }
+  .sub-title { font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1rem 0; }
+  .phase-list { display: flex; flex-direction: column; gap: 10px; }
+  .phase { display: flex; gap: 12px; align-items: flex-start; }
+  .phase-badge { min-width: 60px; background: var(--bg-accent); color: var(--text-accent); border-radius: var(--radius); padding: 3px 8px; font-size: 11px; font-weight: 500; text-align: center; flex-shrink: 0; }
+  .phase-items { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .print-note { font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 1.5rem; }
+  @media print {
+    body { background: white; padding: 0; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="ar-header">
+    <div class="ar-avatar">CP</div>
+    <div class="ar-meta">
+      <h1>Christopher Pourron</h1>
+      <p>Wingstop Franchise Operator &middot; Account Owner: SB Services</p>
+      <span class="badge badge-warning">&#9651; Active issues across tenants</span>
+      <span class="badge badge-success">&#10003; All 6 locations verified &mdash; 0 open cases</span>
+    </div>
+  </div>
+
+  <div class="contacts">
+    <div class="contact-row">&#9993; chris@pourrongroup.com</div>
+    <div class="contact-row">&#9993; chris.ftlcwings@gmail.com</div>
+    <div class="contact-row">&#9990; 214-616-4805</div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-label">Total accounts</div><div class="metric-val">6</div></div>
+    <div class="metric"><div class="metric-label">Verified locations</div><div class="metric-val">6 / 6</div></div>
+    <div class="metric"><div class="metric-label">Open cases</div><div class="metric-val">0</div></div>
+    <div class="metric"><div class="metric-label">Review date</div><div class="metric-val" style="font-size:14px;padding-top:4px">Jul 31, 2026</div></div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Locations &amp; case status</p>
+    <table class="loc-table">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Store</th>
+          <th>Salesforce</th>
+          <th>Open cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>FTLC Wings LLC</td>
+          <td style="color:var(--text-muted)">527</td>
+          <td><a class="sf-link" href="https://8x8.lightning.force.com/lightning/r/Account/001Ht00002fuDILIA2/view" target="_blank">&#8599; View</a></td>
+          <td><span class="case-none">&#10005; None</span><span class="case-note">Last: Sep 19, 2024</span></td>
+        </tr>
+        <tr>
+          <td>White Oak Wings Inc</td>
+          <td style="color:var(--text-muted)">—</td>
+          <td><a class="sf-link" href="https://8x8.lightning.force.com/lightning/r/Account/001Ht00002ftUuLIAU/view" target="_blank">&#8599; View</a></td>
+          <td><span class="case-none">&#10005; None</span><span class="case-note">Last: Sep 15, 2025</span></td>
+        </tr>
+        <tr>
+          <td>Wake Forest Wings Inc</td>
+          <td style="color:var(--text-muted)">2279</td>
+          <td><a class="sf-link" href="https://8x8.lightning.force.com/lightning/r/Account/001Ht00002hlBQOIA2/view" target="_blank">&#8599; View</a></td>
+          <td><span class="case-none">&#10005; None</span><span class="case-note">Last: Sep 15, 2025</span></td>
+        </tr>
+        <tr>
+          <td>Rocky Mount Wings Inc</td>
+          <td style="color:var(--text-muted)">—</td>
+          <td><a class="sf-link" href="https://8x8.lightning.force.com/lightning/r/Account/001Ht00002iLsIiIAK/view" target="_blank">&#8599; View</a></td>
+          <td><span class="case-none">&#10005; None</span><span class="case-note">Last: Dec 4, 2025 — phone activation</span></td>
+        </tr>
+        <tr>
+          <td>Clayton Wings Inc</td>
+          <td style="color:var(--text-muted)">—</td>
+          <td><a class="sf-link" href="https://8x8.lightning.force.com/lightning/r/Account/001Ht00002iLsGgIAK/view" target="_blank">&#8599; View</a></td>
+          <td><span class="case-none">&#10005; None</span><span class="case-note">Last: Sep 15, 2025</span></td>
+        </tr>
+        <tr>
+          <td>Willow Springs Wings</td>
+          <td style="color:var(--text-muted)">—</td>
+          <td><a class="sf-link" href="https://8x8.lightning.force.com/lightning/r/Account/001a600001Duwz1AAB/view" target="_blank">&#8599; View</a></td>
+          <td><span class="case-new">&#10022; New setup</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Common issues</p>
+    <div class="issue-list">
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Calls going directly to voicemail</span></div>
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Static / one-way audio (cannot hear guest)</span></div>
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Incorrect call routing between stores</span></div>
+      <div class="issue-item"><span class="icon-warning">&#9651;</span><span>Multiple phones offline or never provisioned</span></div>
+      <div class="issue-item"><span class="icon-warning">&#9651;</span><span>Legacy PBX configurations &amp; poor call flow design</span></div>
+      <div class="issue-item"><span class="icon-warning">&#9651;</span><span>Lack of call queues; ring groups need redesign</span></div>
+      <div class="issue-item"><span class="icon-warning">&#9651;</span><span>No open support cases despite widespread issues</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Technical findings</p>
+    <p class="sub-title">High priority</p>
+    <div class="issue-list" style="margin-bottom:12px">
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Investigate widespread static/audio issues</span></div>
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Review voicemail routing across all tenants</span></div>
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Validate endpoint registration and provisioning</span></div>
+      <div class="issue-item"><span class="icon-danger">&#10007;</span><span>Verify firmware levels &amp; LAN/WAN health</span></div>
+    </div>
+    <hr class="divider">
+    <p class="sub-title">Architecture improvements</p>
+    <div class="issue-list">
+      <div class="issue-item"><span class="icon-muted">&#9679;</span><span>Standardized auto attendants &amp; call queues</span></div>
+      <div class="issue-item"><span class="icon-muted">&#9679;</span><span>Updated ring groups &amp; consistent routing</span></div>
+      <div class="issue-item"><span class="icon-muted">&#9679;</span><span>Remove unused/offline endpoints; standardize naming</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Next steps</p>
+    <div class="issue-list">
+      <div class="issue-item"><span class="icon-muted">&#9679;</span><span>Customer must enter cases to be tracked for any service issues.</span></div>
+    </div>
+  </div>
+
+  <p class="print-note">Generated Jul 31, 2026 &middot; 8x8 Account Review &middot; SB Services</p>
+
+</div>
+</body>
+</html>
